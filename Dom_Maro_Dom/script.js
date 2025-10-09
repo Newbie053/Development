@@ -1,11 +1,6 @@
 //DOM Manipulation
 
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 1bd3676 (add folder)
+ 
 // const title = document.getElementById('main-heading');
 // console.log(title.textContent);
 
@@ -86,6 +81,22 @@ console.log(ul.parentElement.parentElement);
 
 
 //Event Listeners
+
+const button2 = document.querySelector('.btn-2');
+function alerBtn(){
+    alert('This is cool');
+}
+button2.addEventListener("click",alerBtn);
+
+const box3 = document.querySelector('.box-3');
+
+box3.addEventListener("mouseover", function() {
+    box3.style.backgroundColor = "blue"; // color changes when mouse enters
+});
+
+box3.addEventListener("mouseout", function() {
+    box3.style.backgroundColor = "#f0f0f0"; // revert when mouse leaves
+});
 
 
 
