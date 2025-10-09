@@ -1,3 +1,45 @@
 #main-heading{
     color: yellowgreen;
 }
+/* Container holding the boxes */
+.container2 {
+  display: flex;              /* row-wise layout */
+  gap: 20px;                  /* space between boxes */
+  justify-content: center;    /* center boxes horizontally */
+  align-items: flex-start;    /* align boxes at the top */
+  flex-wrap: nowrap;          /* prevent wrapping, all in one row */
+  padding: 20px;
+  overflow-x: auto;           /* allows scrolling if screen too small */
+}
+
+/* Each box */
+.boxes {
+  border: 2px solid #000;    /* black border */
+  padding: 20px;
+  width: 200px;              /* fixed width */
+  height: 150px;             /* fixed height */
+  display: flex;             /* for internal layout */
+  flex-direction: column;    /* stack heading and button inside box */
+  align-items: center;       /* center content horizontally */
+  justify-content: center;   /* center content vertically */
+  background-color: #f0f0f0; /* light gray background */
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Buttons inside each box */
+.boxes button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+}
+
+.boxes button:hover {
+  background-color: #0056b3;
+}
+

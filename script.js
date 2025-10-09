@@ -1,6 +1,11 @@
 //DOM Manipulation
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1bd3676 (add folder)
 // const title = document.getElementById('main-heading');
 // console.log(title.textContent);
 
@@ -59,10 +64,31 @@
 
 //Parent Node Traversal
 
+
 let ul = document.querySelector('ul');
 console.log(ul);
 console.log(ul.parentNode.parentNode);
 console.log(ul.parentElement.parentElement);
+
+// let ul = document.querySelector('ul');
+// console.log(ul);
+// console.log(ul.parentNode.parentNode);
+// console.log(ul.parentElement.parentElement);
+
+
+//Child Node Traversal
+// let ul = document.querySelector('ul');
+// console.log(ul.childNodes);
+// console.log(ul.firstChild);
+// console.log(ul.lastChild);
+// ul.childNodes[3].style.backgroundColor = 'blue'
+// console.log(ul.children);
+
+
+//Event Listeners
+
+
+
 
 
 
