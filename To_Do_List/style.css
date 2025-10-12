@@ -109,3 +109,51 @@ ul li span{
 ul li span:hover{
     background: #edeef0;
 }
+
+/* Responsive Design */
+@media screen and (max-width: 600px){
+    .todo-app{
+        width: 90%;          /* shrink to 90% of viewport width */
+        max-width: 100%;     /* ensure it never overflows */
+        margin: 20px auto;   /* smaller top/bottom margin */
+        padding: 15px 10px 30px; /* smaller padding */
+        border-radius: 10px;
+    }
+
+    .todo-app h2{
+        font-size: 18px;
+    }
+
+    .row{
+        flex-direction: row;   /* keep input + button on same line */
+        gap: 8px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    input{
+        flex: 1;
+        min-width: 0;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button{
+        padding: 10px 15px;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    ul li{
+        font-size: 14px;
+        padding-left: 40px;
+        word-wrap: break-word;  /* prevent overflow */
+    }
+
+    ul li span{
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+        line-height: 28px;
+    }
+}
