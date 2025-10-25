@@ -1,0 +1,27 @@
+
+###TEST GET / WEBSITE
+
+GET http://localhost:8383
+
+
+### TEST GET /dashboard WEBSITE
+GET http://localhost:8383/dashboard
+
+### GET DATA Endpoint
+GET http://localhost:8383/api/data
+
+### POST Data Endpoint (Add a User)
+POST http://localhost:8383/api/data
+Content-Type: application/json
+
+{
+  "name": "Dipto"
+}
+
+### DELETE Data Endpoint (Remove Last User)
+DELETE http://localhost:8383/api/data
+
+
+### Health Check
+GET http://localhost:8383/health
+

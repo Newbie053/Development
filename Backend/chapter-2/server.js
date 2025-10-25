@@ -1,36 +1,20 @@
-//The address of this server connected to the network is : http://localhost:8383
-// IP-> 127.0.0.1:8383
-const express = require('express');
-const app = express();
-const PORT = 8383;
+// The address of this server connected to the network is: 
+// URL -> http://localhost:8383
+// IP -> 127.0.0.1:8383
+const express = require('express')
+const app = express()
+const PORT = 8383
 
-let data = [{ name: 'james' }];
-
-
+let data = ['james']
 
 // Middleware
 app.use(express.json())
 
-//HTTP VERBS && Routes(or Paths)
-
-//The method informs the nature of request and the route is a further 
-//subbdirectory(basically we direct the request to the body of code to respond
-//appropriately, and these locations or routes r called endpoints)
 
 
-// app.get('/',(req,res) => {
-//     //this is endpoint no 1 -/
-//     // console.log('I hit an endpoint',req.method);
-//     // res.sendStatus(201);
 
-//     res.send('<h1>This is a website</h1><input/>')
-
-// })
-
-// app.get('/dashboard',(req,res)=>{
-//     console.log('I hit /dashboard endpoint');
-//     res.send('hi');
-// })
+// ENDPOINT - HTTP VERBS (method) && Routes (or paths)
+// The method informs the nature of request and the route is a further subdirectory (basically we direct the request to the body of code to respond appropriately, and these locations or routes are called endpoints)
 
 // Type 1 - Website endpoints (these endpoints are for sending back html and they typically come when a user enters a url in a browser)
 
@@ -61,11 +45,10 @@ app.get('/dashboard', (req, res) => {
 
 //CRUD-method create-post read-get update-put and delete-delete
 
-app.get('/api/data',(req,res)=>{{
-    console.log('This one was for data');
-
-    res.send(data);
-}})
+app.get('/api/data', (req, res) => {
+    console.log('This one was for data')
+    res.status(599).send(data)
+})
 
 app.post('/api/data', (req, res) => {
     // someone wants to create a user (for example when they click a sign up button)
@@ -76,13 +59,6 @@ app.post('/api/data', (req, res) => {
     res.sendStatus(201)
 })
 
-
-app.delete('/api/data', (req, res) => {
-    data.pop()
-    console.log('We deleted the element off the end of the array')
-    res.sendStatus(203)
-})
-
 app.delete('/api/data', (req, res) => {
     data.pop()
     console.log('We deleted the element off the end of the array')
@@ -90,6 +66,16 @@ app.delete('/api/data', (req, res) => {
 })
 
 
-app.listen(PORT,()=>{
-    console.log(`Server has strated on: ${PORT}`)
+// Health endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    uptime: process.uptime(),
+    version: '1.0.0',
+    message: 'Server is running smoothly'
+  });
 });
+
+
+
+app.listen(PORT, () => console.log(`Server has started on: ${PORT}`))
