@@ -25,3 +25,16 @@ DELETE http://localhost:8383/api/data
 ### Health Check
 GET http://localhost:8383/health
 
+### Get All Cars
+GET http://localhost:8383/api/cars
+
+### Add New Car Entry
+POST http://localhost:8383/api/cars
+Content-Type: application/json
+
+{
+  "car_id": "C002",
+  "serial_number": "SN67890",
+  "entry_time": "2025-10-26T10:30:00Z",
+  "exit_time": null
+}

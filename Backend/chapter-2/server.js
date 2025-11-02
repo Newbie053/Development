@@ -66,14 +66,74 @@ app.delete('/api/data', (req, res) => {
 })
 
 
-// Health endpoint
+// Health endpoint with error handling
 app.get('/health', (req, res) => {
-  res.status(200).json({
-    status: 'ok',
-    uptime: process.uptime(),
-    version: '1.0.0',
-    message: 'Server is running smoothly'
-  });
+  try {
+    res.status(200).json({
+      status: 'ok',
+      uptime: process.uptime(),
+      version: '1.0.0',
+      message: 'Server is running smoothly',
+    });
+  } catch (error) {
+    console.error('Health check failed:', error);
+
+    res.status(500).json({
+      status: 'error',
+      message: 'Health check failed',
+      error: error.message,
+    });
+  }
+});
+
+
+
+
+// Mock database for car events
+let cars = [
+  {
+    car_id: 'C001',
+    serial_number: 'SN12345',
+    entry_time: '2025-10-26T09:00:00Z',
+    exit_time: null,
+  },
+];
+
+// GET - fetch all car events
+app.get('/api/cars', (req, res) => {
+  try {
+    res.status(200).json({
+      status: 'ok',
+      count: cars.length,
+      data: cars,
+    });
+  } catch (error) {
+    console.error('Error fetching car list:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch cars' });
+  }
+});
+
+// POST - add a new car event
+app.post('/api/cars', (req, res) => {
+  try {
+    const { car_id, serial_number, entry_time, exit_time } = req.body;
+
+    // Basic validation
+    if (!car_id || !serial_number || !entry_time) {
+      return res
+        .status(400)
+        .json({ status: 'error', message: 'Missing required fields' });
+    }
+
+    const newCar = { car_id, serial_number, entry_time, exit_time: exit_time || null };
+    cars.push(newCar);
+
+    console.log('New car added:', newCar);
+    res.status(201).json({ status: 'ok', message: 'Car event added', data: newCar });
+  } catch (error) {
+    console.error('Error adding car:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to add car' });
+  }
 });
 
 
