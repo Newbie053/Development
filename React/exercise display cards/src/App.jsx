@@ -26,6 +26,7 @@ function App() {
           <div className="card" key={post.id}>
             <h3>{post.title}</h3>
             <p>{post.body}</p>
+            <span>By:UserId:{post.userId}</span>
           </div>
         ))}
 
